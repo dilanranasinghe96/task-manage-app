@@ -1,10 +1,10 @@
 import 'dart:io' as io;
 
-import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:task_manage_app/models/task_model.dart';
+
+import '../models/task_model.dart';
 
 class DatabaseConnection {
   static Database? _db;
@@ -18,7 +18,7 @@ class DatabaseConnection {
   }
 
   initDatabase() async {
-    io.Directory = documentDirectory = await getApplicationDocumentsDirectory();
+    io.Directory documentDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentDirectory.path, 'task_DB');
     var db = await openDatabase(path, version: 1, onCreate: _createDatabase);
     return db;
