@@ -1,15 +1,11 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:task_manage_app/splash%20screen/splash_screen.dart';
 
 import 'screens/homepage.dart';
 
 void main() {
   runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => const MyApp(), // Wrap your app
-    ),
+    const MyApp(),
   );
 }
 
@@ -26,6 +22,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const HomePage());
+        home: const SplashScreen());
   }
 }
